@@ -1,2 +1,2 @@
 # CCNAv7
-course work and assignments
+## Repo for records of assignments and course work
