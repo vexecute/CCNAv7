@@ -101,7 +101,7 @@ interface Vlan20
  ip address 192.168.20.1 255.255.255.0
 !
 interface Vlan99
- description datavlan99
+ description managementvlan99
  ip address 192.168.99.1 255.255.255.0
 !
 ip classless
