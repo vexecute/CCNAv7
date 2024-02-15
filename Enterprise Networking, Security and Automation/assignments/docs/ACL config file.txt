@@ -1,0 +1,39 @@
+Standard ACLs on R1:
+---------------------
+1) access-list 1 permit 192.168.2.0 0.0.0.255
+   # permitting end devices which belongs to 192.162.2.0 network.
+
+2) access-list 1 deny 192.168.3.0 0.0.0.255 
+   # denying end devices which belongs to 192.162.3.0 network.
+
+Standar ACL for Telnet access in R1:
+------------------------------------
+1) ip access-list standard telnet
+   permit host 192.168.2.3
+   # allowing telnet access only to the host 192.168.2.3 and denying all others within the network and also from any network.
+
+
+Extended ACL configuration:
+----------------------------
+1) permit tcp 192.168.2.0 0.0.0.255 host 192.168.1.100 eq www
+2) permit tcp 192.168.2.0 0.0.0.255 host 192.168.1.100 eq 20
+3) permit tcp 192.168.2.0 0.0.0.255 host 192.168.1.100 eq 21
+4) permit udp 192.168.2.0 0.0.0.255 eq snmp any
+   # permitting http and ftp services and denying all other services on 192.168.2.0 network.
+
+4) permit tcp 192.168.2.0 0.0.0.255 host 192.168.1.100 eq 20
+5) permit tcp 192.168.2.0 0.0.0.255 host 192.168.1.100 eq 21
+6) permit tcp 192.168.2.0 0.0.0.255 host 192.168.1.100 eq smtp
+7) permit tcp 192.168.2.0 0.0.0.255 host 192.168.1.100 eq pop3
+   # permitting smtp, pop3 and ftp services and denying all other services on 192.168.3.0 network.
+
+8) deny icmp any 192.168.1.0 0.0.0.255 echo
+   # denying ping from any devices on the other networks. Which is no devices can ping to devices on 192.168.1.0 network
+9) permit icmp any 192.168.1.0 0.0.0.255 echo-reply
+   # but permitting devices on 192.168.1.0 to ping to other networks. 
+
+icmp configuration is helpful for network administrators to test the connectivity between networks and at same time not allowing other networks to ping to the administrator's network.
+
+
+
+
